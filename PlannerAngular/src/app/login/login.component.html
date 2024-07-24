@@ -1,0 +1,21 @@
+<div class="login">
+  <div *ngIf=!isLoggedIn>
+
+  <label for="username" id="username">Username</label>
+  <input type="text" name="username" required />
+
+  <label for="password" id="password">Password</label>
+  <input type="password" name="password" required minlength="6" />
+
+  <button>Login</button>
+  <div *ngIf=isLoginFailed>
+    Login failed
+  </div>
+
+  <hr />
+  <p>Don't have an account?</p>
+  <a href="signup">Sign Up</a>
+
+  </div>
+</div>
+

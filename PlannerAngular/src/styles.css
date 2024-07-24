@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  font-family: "Optima", sans-serif
+}
+
+h1 {
+  text-align: center;
+}
+
+.login, .register {
+  font-size: 29px;
+  background-color: aliceblue;
+  border-radius: 25px;
+  box-shadow: -4px -4px 4px rgba(0, 0, 0, 0.1), /* top left */
+  4px  4px 4px rgba(0, 0, 0, 0.1); /* bottom right */
+  padding: 35px 40px;
+  width: 550px;
+  margin: 15vh auto 0;
+}

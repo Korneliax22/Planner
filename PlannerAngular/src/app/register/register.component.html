@@ -1,0 +1,16 @@
+<div class="register">
+  <div *ngIf=!isSignedUp>
+
+    <label for="username" id="username">Username</label>
+    <input type="text" name="username" required />
+
+    <label for="password" id="password">Password</label>
+    <input type="password" name="password" required minlength="6" />
+
+    <button>Register</button>
+    <div *ngIf=isSignUpFailed>
+      Signup failed!<br/>
+    </div>
+
+  </div>
+</div>
