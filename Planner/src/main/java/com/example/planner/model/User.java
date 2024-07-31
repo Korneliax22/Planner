@@ -1,5 +1,6 @@
 package com.example.planner.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -16,15 +17,17 @@ public class User {
     private String username;
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Note> notes = new ArrayList<>();
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Event> events = new ArrayList<>();
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Task> tasks = new ArrayList<>();
+    public User() {
 
+    }
 
     public Long getId() {
         return id;
@@ -37,7 +40,6 @@ public class User {
     public String getUsername() {
         return username;
     }
-
     public void setUsername(String username) {
         this.username = username;
     }
@@ -50,27 +52,11 @@ public class User {
         this.password = password;
     }
 
-    public List<Note> getNotes() {
-        return notes;
+    public Role getRole() {
+        return role;
     }
 
-    public void setNotes(List<Note> notes) {
-        this.notes = notes;
-    }
-
-    public List<Event> getEvents() {
-        return events;
-    }
-
-    public void setEvents(List<Event> events) {
-        this.events = events;
-    }
-
-    public List<Task> getTasks() {
-        return tasks;
-    }
-
-    public void setTasks(List<Task> tasks) {
-        this.tasks = tasks;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

@@ -1,21 +1,36 @@
 <div class="login">
-  <div *ngIf=!isLoggedIn>
-
-  <label for="username" id="username">Username</label>
-  <input type="text" name="username" required />
-
-  <label for="password" id="password">Password</label>
-  <input type="password" name="password" required minlength="6" />
-
-  <button>Login</button>
-  <div *ngIf=isLoginFailed>
-    Login failed
+  <div *ngIf="isLoggedIn; else loggedOut">
   </div>
 
-  <hr />
-  <p>Don't have an account?</p>
-  <a href="signup">Sign Up</a>
+  <ng-template #loggedOut>
+    <form (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
 
-  </div>
+      <div class="form-group">
+        <label for="username" id="username">Username</label>
+        <input type="text" name="username" [(ngModel)]="form.username" #username="ngModel" required />
+        <div *ngIf="f.submitted && username.invalid">
+          <div class="error">Username is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password" id="password">Password</label>
+        <input type="password" name="password" [(ngModel)]="form.password" #password="ngModel" required />
+        <div *ngIf="f.submitted && password.invalid">
+          <div class="error">Password is required</div>
+        </div>
+      </div>
+
+    <div class="form-group">
+      <button class="button">Login</button>
+      <div *ngIf="f.submitted && isLoginFailed">
+        Login failed.
+      </div>
+    </div>
+    </form>
+
+    <hr />
+    <p>Don't have an account?</p>
+    <a href="signup">Sign Up</a>
+  </ng-template>
 </div>
-

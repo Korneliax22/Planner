@@ -7,6 +7,32 @@ h1 {
   text-align: center;
 }
 
+.navbar ul {
+  list-style-type: none;
+  background-color: cornflowerblue;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 18px;
+  display: block;
+  text-align: center;
+  font-size: 25px;
+}
+
+.navbar a:hover {
+  background-color: darkolivegreen;
+}
+
+.navbar li {
+  flex-grow: 1;
+}
+
 .login, .register {
   font-size: 29px;
   background-color: aliceblue;
@@ -16,4 +42,77 @@ h1 {
   padding: 35px 40px;
   width: 550px;
   margin: 15vh auto 0;
+}
+
+.login input, .register input {
+  width: 100%;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.error {
+  color: red;
+  font-size: 22px;
+}
+
+.button {
+  display: inline-block;
+  background-color: cornflowerblue;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 25px;
+  text-align: center;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: -4px -4px 4px rgba(0, 0, 0, 0.1), /* top left */
+  4px  4px 4px rgba(0, 0, 0, 0.1); /* bottom right */
+}
+
+.button:hover {
+  background-color: darkolivegreen;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh; /* Full height of the viewport */
+  text-align: center;
+}
+
+.task {
+  font-size: 29px;
+  background-color: aliceblue;
+  border-radius: 25px;
+  box-shadow: -4px -4px 4px rgba(0, 0, 0, 0.1), /* top left */
+  4px  4px 4px rgba(0, 0, 0, 0.1); /* bottom right */
+  padding: 10px 40px;
+  width: 550px;
+  margin: 10vh auto 0;
+}
+
+.posts li{
+  list-style-type: none;
+  font-size: 20px;
+  background-color: aliceblue;
+  border-radius: 25px;
+  box-shadow: -4px -4px 4px rgba(0, 0, 0, 0.1), /* top left */
+  4px  4px 4px rgba(0, 0, 0, 0.1); /* bottom right */
+  padding: 7px 30px;
+  margin: 20px 30px;
+}
+
+.chat {
+  text-align: center;
+}
+
+.chat textarea {
+  width: 400px;
+  height: 200px;
 }

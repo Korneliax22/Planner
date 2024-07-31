@@ -1,0 +1,13 @@
+<div class="center" *ngIf="!isLoggedIn">
+  <p><strong>Log in to see your events.</strong></p>
+  <button class="button" (click)="loginToGoogleCalendar()">Log in to Google Calendar</button>
+</div>
+
+<div class="posts" *ngIf="isLoggedIn">
+  <li *ngFor="let event of events">
+    <ng-template #noInfo></ng-template>
+    <p *ngIf="event.summary; else noInfo"><strong>Title:</strong> {{ event.summary }}</p>
+    <p *ngIf="event.description; else noInfo"><strong>Description:</strong> {{ event.description }}</p>
+    <p *ngIf="event.location; else noInfo"><strong>Location:</strong> {{ event.location }}</p>
+  </li>
+</div>

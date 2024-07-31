@@ -1,5 +1,14 @@
 <h1>Planner</h1>
 
+<nav class="navbar">
+  <ul>
+    <li *ngIf="loggedIn"><a routerLink="/tasks">TASKS</a></li>
+    <li *ngIf="loggedIn"><a routerLink="/chat">CHAT</a></li>
+    <li *ngIf="loggedIn"><a routerLink="/events">EVENTS</a></li>
+    <li *ngIf="loggedIn"><a routerLink="/mypage">MY PAGE</a></li>
+  </ul>
+</nav>
+
 <div id="content">
   <div class="container">
     <router-outlet></router-outlet>

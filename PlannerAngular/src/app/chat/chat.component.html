@@ -1,0 +1,11 @@
+<h1>Chat</h1>
+<div class="chat">
+  <div *ngFor="let message of messages">
+    <p><strong>{{message.user}}:</strong> {{message.message}}</p>
+  </div>
+  <textarea [(ngModel)]="newMessage" id="messageToSend"></textarea>
+  <br>
+  <button class="button" (click)="sendMessage(newMessage)">Send message</button>
+  <br>
+  <p id="response"></p>
+</div>

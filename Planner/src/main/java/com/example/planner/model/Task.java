@@ -1,9 +1,7 @@
 package com.example.planner.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -16,6 +14,20 @@ public class Task {
     private String title;
     private String description;
     private LocalDate dueTime;
+
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JsonBackReference
+    private User user;
+
+    public Task() {
+    }
+
+    public Task(String title, String description, LocalDate dueTime, User user) {
+        this.title = title;
+        this.description = description;
+        this.dueTime = dueTime;
+        this.user = user;
+    }
 
     public Long getId() {
         return id;
