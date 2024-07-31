@@ -1,6 +1,7 @@
 package com.example.planner.security;
 
 import io.jsonwebtoken.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
@@ -9,9 +10,11 @@ import java.util.Date;
 @Component
 public class JwtProvider {
 
-    private long jwtExpiration = 3600;
-    private String jwtSecret = "DyL+8kYWMpcXPhsHAGa+BiNjzUPV1l2HD7JWbCcD4qn1uWFg2OhctxgKQzFTl5JyWlLqdsx7YWhGBCG6V4vfMA==";
+    @Value("${jwtExpiration}")
+    private int jwtExpiration;
 
+    @Value("${jwtSecret}")
+    private String jwtSecret;
 
     public String getUserNameFromJwtToken(String jwtToken) {
         return Jwts.parser()
